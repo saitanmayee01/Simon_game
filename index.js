@@ -59,10 +59,19 @@ function checkanswer(currentlevel){
                 nextSequence();
             }, 1000);
     }
-    else
+    else{
         console.log("fail");
-    
-    console.log("game:"+gamePattern);
-    console.log("user:"+userClickedPattern);
+        var wrong = new Audio("sounds/wrong.mp3");
+        wrong.play();
+
+        $("body").addClass("game-over");
+        setTimeout(function () {
+            $("body").removeClass("game-over");
+        }, 200);
+
+        $("#level-title").text("Game over! Press any key to restart");
+    }
+    // console.log("game:"+gamePattern);
+    // console.log("user:"+userClickedPattern);
 }
 
